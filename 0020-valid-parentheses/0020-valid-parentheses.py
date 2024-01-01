@@ -1,19 +1,18 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        open_parent = "([{"
-        close_parent = ")]}"
+        brackets = {
+        ")": "(",
+        "]": "[",
+        "}": "{"
+        }
         
         stack = list()
-        counter = 0
         for char in s:
-            if char in open_parent:
-                stack.append(char)
+            if char in brackets:
+                if stack and stack[-1] == brackets[char]:
+                    stack.pop()
+                else:
+                    return False
             else:
-                if not stack:
-                    return False
-                opens = stack.pop()
-                close_idx = close_parent.index(char)
-                if open_parent[close_idx] != opens:
-                    return False
-                counter += 2
-        return counter == len(s)
+                stack.append(char)
+        return True if not stack else False
