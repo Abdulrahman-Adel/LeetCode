@@ -7,6 +7,5 @@ class Solution:
             else:
                 n1, n2 = num_stack.pop(),  num_stack.pop()
                 res = int(eval(n2 + token + n1))
-                print(f"{n2} {token} {n1} = {res}")
                 num_stack.append(str(res))
         return int(num_stack.pop())
