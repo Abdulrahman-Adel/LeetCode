@@ -15,8 +15,9 @@ class Solution:
                     else:
                         return False
         
+        # check for third rule
+        # 3- each of the nine 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition
         subgridMap = defaultdict(list)
-        
         for r in range(len(board)):
             for c in range(len(board)):
                 if board[r][c].isdigit():
