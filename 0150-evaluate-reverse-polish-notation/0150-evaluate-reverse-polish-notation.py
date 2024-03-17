@@ -3,9 +3,9 @@ class Solution:
         stack = []
         for char in tokens:
             if char.lstrip('-').isdigit():
-                stack.append(char)
+                stack.append(int(char))
             else:
                 value_1 = stack.pop()
                 value_2 = stack.pop()
                 stack.append(int(eval(str(value_2) + char + str(value_1))))
-        return int(stack.pop())
+        return stack.pop()
