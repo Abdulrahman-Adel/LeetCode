@@ -6,7 +6,6 @@ class Solution:
         for i in range(len(numbers)):
             current = numbers[i]
             if target - current in numbers[i+1:]:
-                print('Yes')
                 pointer_1 = i
                 pointer_2 = i + numbers[i+1:].index(target - current) + 1
                 break
